@@ -31,7 +31,7 @@ class ImageVC: UIViewController {
         }
     }
     
-    private var imageView = UIImageView() // creates a (0,0,0,0) frame image view. Remember to set contentSize!
+    private var imageView = UIImageView() // creates a (0,0,0,0) frame image view from code. Remember to set contentSize!
     
     private var image: UIImage? {
         get {
@@ -40,7 +40,7 @@ class ImageVC: UIViewController {
         set {
             imageView.image = newValue
             imageView.sizeToFit()
-            scrollView?.contentSize = imageView.frame.size
+            scrollView?.contentSize = imageView.frame.size // can fail if model sets first so we put it in didSet 
         }
     }
     
